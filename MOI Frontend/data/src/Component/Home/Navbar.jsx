@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { HiUser } from "react-icons/hi";
 
-const Navbar = ({children}) => {
+const Navbar = ({ children }) => {
 
     const to = JSON.parse(sessionStorage.getItem('paylode'));
 
     return (
         <div>
-            <header className="header  bg-white shadow-md flex items-center justify-between px-8 py-02">
+            <header className="header  sticky  top-0     bg-white shadow-md flex items-center justify-between px-8 py-02">
                 {/* logo */}
                 <h1 className="w-3/12 text-blue-600 text-2xl">
                     <Link to="/home">MapOfIndia</Link>
@@ -17,7 +17,7 @@ const Navbar = ({children}) => {
                 <nav className="nav font-semibold text-lg">
                     <ul className="flex items-center">
 
-                        
+
 
 
 
@@ -33,7 +33,7 @@ const Navbar = ({children}) => {
 
 
             </header >
-                <div className='w-full '>{children}</div>
+            <div className='w-full '>{children}</div>
 
         </div >
     )

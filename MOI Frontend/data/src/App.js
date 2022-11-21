@@ -14,9 +14,7 @@ import Statelist from "./Component/Master Table/Statelist";
 import Districtlist from "./Component/Master Table/Districtlist";
 import Blocklist from "./Component/Master Table/Blocklist";
 import Villagelist from "./Component/Master Table/Villagelist";
-import Sidebar from "./Component/Home/Sidebar";
 import Userdata from "./Component/User/Userdata";
-import Navbar from "./Component/Home/Navbar";
 function App() {
   let to = sessionStorage.getItem("paylode");
   return (
@@ -25,55 +23,46 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
         </Routes>
-        <Sidebar>
-          <Navbar>
-            <Routes>
-              <Route path="/home" element={<Protected Component={Home} />} />
-              <Route
-                path="/register"
-                element={<Protected Component={Register} />}
-              />
-              <Route
-                path="/user"
-                element={<Protected Component={Userdata} />}
-              />
-              <Route path="/state" element={<Protected Component={State} />} />
-              <Route
-                path="/district"
-                element={<Protected Component={District} />}
-              />
-              <Route path="/block" element={<Protected Component={Block} />} />
-              <Route
-                path="/village"
-                element={<Protected Component={Village} />}
-              />
-              <Route
-                path="/beneficiry"
-                element={<Protected Component={Beneficiry} />}
-              />
-              <Route
-                path="/state/list"
-                element={<Protected Component={Statelist} />}
-              />
-              <Route
-                path="/district/list"
-                element={<Protected Component={Districtlist} />}
-              />
-              <Route
-                path="/block/list"
-                element={<Protected Component={Blocklist} />}
-              />
-              <Route
-                path="/village/list"
-                element={<Protected Component={Villagelist} />}
-              />
-              <Route
-                path="/beneficirydata"
-                element={<Protected Component={Benficiirydata} />}
-              />
-            </Routes>
-          </Navbar>
-        </Sidebar>
+
+        <Routes>
+          <Route path="/home" element={<Protected Component={Home} />} />
+          <Route
+            path="/register"
+            element={<Protected Component={Register} />}
+          />
+          <Route path="/user" element={<Protected Component={Userdata} />} />
+          <Route path="/state" element={<Protected Component={State} />} />
+          <Route
+            path="/district"
+            element={<Protected Component={District} />}
+          />
+          <Route path="/block" element={<Protected Component={Block} />} />
+          <Route path="/village" element={<Protected Component={Village} />} />
+          <Route
+            path="/beneficiry"
+            element={<Protected Component={Beneficiry} />}
+          />
+          <Route
+            path="/state/list"
+            element={<Protected Component={Statelist} />}
+          />
+          <Route
+            path="/district/list"
+            element={<Protected Component={Districtlist} />}
+          />
+          <Route
+            path="/block/list"
+            element={<Protected Component={Blocklist} />}
+          />
+          <Route
+            path="/village/list"
+            element={<Protected Component={Villagelist} />}
+          />
+          <Route
+            path="/beneficirydata"
+            element={<Protected Component={Benficiirydata} />}
+          />
+        </Routes>
       </BrowserRouter>
     </>
   );
