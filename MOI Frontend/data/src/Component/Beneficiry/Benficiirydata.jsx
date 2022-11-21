@@ -31,7 +31,7 @@ const Benficiirydata = () => {
         <Navbar />
 
 
-        <div className=" shadow-md sm:rounded-lg max-h-screen overflow-scroll  ">
+        <div className=" shadow-md sm:rounded-lg max-h-screen overflow-scroll scrollbar-hide  ">
           <h1 className=' flex  text-lg font-bold py-2 items-center, justify-center'>BENFICIRY DETAILS</h1>
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

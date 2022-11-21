@@ -158,10 +158,10 @@ const Beneficiry = () => {
 
 
                 <div className="mt-10 sm:mt-0   p-2  flex justify-center items-center">
-                    <div className="items-center max-h-screen overflow-scroll ">
+                    <div className="items-center max-h-screen overflow-scroll scrollbar-hide ">
                         <div className="mt-5 md:mt-0 md:col-span-2 ">
 
-                            <div className="shadow overflow-hidden sm:rounded-md">
+                            <div className="shadow overflow-hidden  sm:rounded-md">
                                 <div className="px-4  py-5  shadow-lg sm:p-2 w-[700px]">
                                     <h1 className='flex justify-center items-center text-gray-700 px-2 font-bold text-xl'>Create New Beneficiry</h1>
                                     <div className="py-2 ml-24 w-[500px]">
