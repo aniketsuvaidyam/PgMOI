@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../Home/Navbar';
 import Sidebar from '../Home/Sidebar';
 
-
 const Beneficiry = () => {
     const to = JSON.parse(sessionStorage.getItem('paylode'));
 
