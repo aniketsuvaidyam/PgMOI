@@ -43,7 +43,7 @@ const Register = () => {
     };
 
     useEffect(() => {
-        postData()
+        // postData()
     }, [])
     return (
         <div>

@@ -7,7 +7,6 @@ import Sidebar from '../Home/Sidebar';
 
 const Village = () => {
     const [name, setname] = useState('');
-    // const [id, setid] = useState('')
     const [err, seterror] = useState('');
     const [states, setstates] = useState([]);
     const [stateId, setstateId] = useState([]);

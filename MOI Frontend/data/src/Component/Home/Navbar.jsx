@@ -10,7 +10,7 @@ const Navbar = ({ children }) => {
         <div>
             <header className="header  sticky  top-0     bg-white shadow-md flex items-center justify-between px-8 py-02">
                 {/* logo */}
-                <h1 className="w-3/12 text-blue-600 text-2xl">
+                <h1 className="w-3/12 text-green-600 font-bold text-2xl">
                     <Link to="/home">MapOfIndia</Link>
                 </h1>
                 {/* navigation */}

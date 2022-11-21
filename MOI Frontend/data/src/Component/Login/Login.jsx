@@ -18,15 +18,20 @@ const Login = () => {
         })
             .then((res) => {
                 console.log(res)
+                seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip }))
                 sessionStorage.setItem('token', (res.data.token))
 
                 if (res.data.token) {
 
-                    navigate('/home');
-                    let token = res.data.token
-                    let paylosd = token.split(".")
-                    let data = atob(paylosd[1])
-                    sessionStorage.setItem('paylode', data)
+                    const timer = setTimeout(() => {
+                        navigate('/home');
+                        let token = res.data.token
+                        let paylosd = token.split(".")
+                        let data = atob(paylosd[1])
+                        sessionStorage.setItem('paylode', data)
+
+                    }, 2000);
+                    return () => clearTimeout(timer);
 
                 } else {
                     console.log("unauthorized")
@@ -41,7 +46,7 @@ const Login = () => {
 
 
     useEffect(() => {
-        postData()
+        // postData()
 
     }, [])
     return (

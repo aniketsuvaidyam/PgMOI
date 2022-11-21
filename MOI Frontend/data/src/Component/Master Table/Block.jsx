@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { ToastContainer, toast, Flip } from 'react-toastify';
+import { ToastContainer, toast, Flip, Zoom } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../Home/Sidebar';
 import Navbar from '../Home/Navbar';
@@ -22,19 +22,7 @@ const Block = () => {
     }
 
     let token = sessionStorage.getItem('token')
-    const postData = () => {
-        axios.post(`http://localhost:3000/api/block/add`, data, {
-            headers: {
-                "token": `${token}`
-            }
-        }).then((res) => {
-            console.log(res.data)
-            setname(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip, autoClose: 1000 }))
-        }).catch((error) => {
-            console.log(error)
-            seterror(toast.error(error.response.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip, autoClose: 1000 }))
-        })
-    }
+
     const getState = () => {
         axios.get(`http://localhost:3000/api/state/all`, {
             headers: {
@@ -62,11 +50,30 @@ const Block = () => {
             console.log(err)
         })
     }
+    const postData = () => {
+        axios.post(`http://localhost:3000/api/block/add`, data, {
+            headers: {
+                "token": `${token}`
+            }
+        }).then((res) => {
+            console.log(res.data)
+            seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Zoom, autoClose: 1000 }))
+
+
+
+        }).catch((error) => {
+            console.log(error)
+            seterror(toast.error(error.response.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Zoom, autoClose: 1000 }))
+        })
+
+
+
+    }
 
     useEffect(() => {
-        postData();
-        getState();
+        getState()
         getDistrict()
+        postData();
 
 
 

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Navbar from '../Home/Navbar'
-import { Link } from 'react-router-dom'
-import { AiFillDelete } from "react-icons/ai";
 import Sidebar from '../Home/Sidebar';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Blocklist = () => {
     let token = sessionStorage.getItem('token')
@@ -12,6 +12,7 @@ const Blocklist = () => {
     const [districts, setdistrict] = useState([]);
     const [districtId, setdistrictId] = useState([]);
     const [data, setdata] = useState([])
+    const [err, seterror] = useState("");
 
     const getState = () => {
         axios.get(`http://localhost:3000/api/state/all`, {
@@ -53,6 +54,35 @@ const Blocklist = () => {
             console.log(err)
         })
     };
+    const postData = (id) => {
+
+
+        axios
+            .delete(`http://localhost:3000/api/block/${id}`, {
+                headers: {
+                    token: `${token}`,
+                },
+            })
+            .then((res) => {
+                console.log(res);
+                seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip, autoClose: 1000 }))
+                getBlock()
+            })
+            .catch((error) => {
+                console.log(error);
+                seterror(
+                    toast.error(error.response.data.message, {
+                        position: toast.POSITION.TOP_CENTER,
+                        theme: "colored",
+                        transition: Flip,
+                        autoClose: 1000,
+                    })
+                );
+            });
+
+
+    };
+
 
     useEffect(() => {
 
@@ -144,7 +174,9 @@ const Blocklist = () => {
                                         </td>
                                         <td className="py-4   ">
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700">Delete</button>
+                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => {
+                                                postData(e.id)
+                                            }}>Delete</button>
 
                                         </td>
                                     </tr>
@@ -154,6 +186,7 @@ const Blocklist = () => {
                         </tbody>
                     </table>
                 </div>
+                <ToastContainer />
 
 
             </Sidebar>

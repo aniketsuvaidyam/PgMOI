@@ -2,26 +2,59 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Sidebar from '../Home/Sidebar';
 import Navbar from '../Home/Navbar';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Benficiirydata = () => {
 
   const [data, setdata] = useState([])
+  const [err, seterror] = useState("");
 
   const token = sessionStorage.getItem('token')
-  useState(() => {
-    const getBenificiry = () => {
-      axios.get(`http://localhost:3000/api/beneficiry/all`, {
-        headers: {
-          "token": `${token}`
 
-        }
-      }).then((res) => {
-        console.log(res.data)
-        setdata(res.data)
-      }).catch((err) => {
-        console.log(err)
+  const postData = (id) => {
+
+
+    axios
+      .delete(`http://localhost:3000/api/beneficiry/${id}`, {
+        headers: {
+          token: `${token}`,
+        },
       })
-    };
+      .then((res) => {
+        console.log(res);
+        seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip, autoClose: 1000 }))
+        getBenificiry()
+      })
+      .catch((error) => {
+        console.log(error);
+        seterror(
+          toast.error(error.response.data.message, {
+            position: toast.POSITION.TOP_CENTER,
+            theme: "colored",
+            transition: Flip,
+            autoClose: 1000,
+          })
+        );
+      });
+
+
+  };
+
+  const getBenificiry = () => {
+    axios.get(`http://localhost:3000/api/beneficiry/all`, {
+      headers: {
+        "token": `${token}`
+
+      }
+    }).then((res) => {
+      console.log(res.data)
+      setdata(res.data)
+    }).catch((err) => {
+      console.log(err)
+    })
+  };
+  useState(() => {
     getBenificiry()
 
   }, [])
@@ -95,7 +128,7 @@ const Benficiirydata = () => {
                     </td>
                     <td className="py-4   ">
 
-                      <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700">Delete</button>
+                      <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
 
                     </td>
                   </tr>
@@ -106,7 +139,7 @@ const Benficiirydata = () => {
           </table>
         </div>
 
-
+        <ToastContainer />
 
 
       </Sidebar>

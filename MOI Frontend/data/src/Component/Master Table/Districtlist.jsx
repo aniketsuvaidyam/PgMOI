@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Sidebar from '../Home/Sidebar';
 import Navbar from '../Home/Navbar';
+import { ToastContainer, toast, Flip, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Districtlist = () => {
     let token = sessionStorage.getItem('token')
     const [states, setstates] = useState([]);
     const [stateId, setstateId] = useState([]);
     const [data, setdata] = useState([]);
+    const [err, seterror] = useState("");
 
     const getState = () => {
         axios.get(`http://localhost:3000/api/state/all`, {
@@ -35,6 +38,37 @@ const Districtlist = () => {
             console.log(err)
         })
     }
+
+
+    const postData = (id) => {
+
+
+        axios
+            .delete(`http://localhost:3000/api/district/${id}`, {
+                headers: {
+                    token: `${token}`,
+                },
+            })
+            .then((res) => {
+                console.log(res);
+                seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Zoom, autoClose: 1000 }))
+                getDistrict()
+
+            })
+            .catch((error) => {
+                console.log(error);
+                seterror(
+                    toast.error(error.response.data.message, {
+                        position: toast.POSITION.TOP_CENTER,
+                        theme: "colored",
+                        transition: Zoom,
+                        autoClose: 1000,
+                    })
+                );
+            });
+
+
+    };
 
     useEffect(() => {
         getDistrict()
@@ -104,7 +138,8 @@ const Districtlist = () => {
                                         </td>
                                         <td className="py-4   ">
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700">Delete</button>
+
+                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
 
                                         </td>
                                     </tr>
@@ -117,6 +152,7 @@ const Districtlist = () => {
 
 
 
+                <ToastContainer />
 
             </Sidebar>
 
