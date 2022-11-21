@@ -12,6 +12,7 @@ const Village = require("../Controllers/villageController");
 // auth
 
 router.post("/login", Auth.loginUser);
+router.post("/register", Auth.registerUser);
 
 //Role
 router.get("/role/all", Role.getRole);
@@ -22,7 +23,6 @@ router.delete("/role/:id", Role.deleteRole);
 
 router.use(Auth.verfyToken);
 
-router.post("/register", Auth.registerUser);
 
 // user routs
 router.get("/user/all", User.getUser);
