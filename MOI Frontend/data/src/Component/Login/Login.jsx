@@ -18,7 +18,7 @@ const Login = () => {
         })
             .then((res) => {
                 console.log(res)
-                seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip }))
+                seterror(toast.success(res.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Zoom, autoClose: 1000 }))
                 sessionStorage.setItem('token', (res.data.token))
 
                 if (res.data.token) {
@@ -30,7 +30,7 @@ const Login = () => {
                         let data = atob(paylosd[1])
                         sessionStorage.setItem('paylode', data)
 
-                    }, 2000);
+                    }, 1000);
                     return () => clearTimeout(timer);
 
                 } else {
@@ -39,7 +39,7 @@ const Login = () => {
                 }
             }).catch((error) => {
                 console.log(error)
-                seterror(toast.error(error.response.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Flip }))
+                seterror(toast.error(error.response.data.message, { position: toast.POSITION.TOP_CENTER, theme: "colored", transition: Zoom, autoClose: 1000 }))
             })
 
     };

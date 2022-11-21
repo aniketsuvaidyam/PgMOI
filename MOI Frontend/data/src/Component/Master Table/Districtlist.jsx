@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Districtlist = () => {
     let token = sessionStorage.getItem('token')
+    let to = sessionStorage.getItem('paylode')
     const [states, setstates] = useState([]);
     const [stateId, setstateId] = useState([]);
     const [data, setdata] = useState([]);
@@ -108,12 +109,19 @@ const Districtlist = () => {
                                 <th scope="col" className="py-3 px-6">
                                     District  Name
                                 </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Edit
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Delete
-                                </th>
+                                {
+                                    to.role === '1' ?
+                                        <> <th scope="col" className="py-3 px-6">
+                                            Edit
+                                        </th>
+                                            <th scope="col" className="py-3 px-6">
+                                                Delete
+                                            </th>
+                                        </>
+
+
+                                        : <></>
+                                }
 
 
                             </tr>
@@ -129,19 +137,24 @@ const Districtlist = () => {
                                             {e.name}
                                         </td>
 
+                                        {
+                                            to.role === "1" ? <>
 
 
-                                        <td className="py-4  px-2  ">
+                                                <td className="py-4  px-2  ">
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
 
-                                        </td>
-                                        <td className="py-4   ">
+                                                </td>
+                                                <td className="py-4   ">
 
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
 
-                                        </td>
+                                                </td>
+                                            </> : <></>
+
+                                        }
                                     </tr>
                                 )
                             })}

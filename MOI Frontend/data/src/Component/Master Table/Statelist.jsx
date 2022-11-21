@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Statelist = () => {
     let token = sessionStorage.getItem("token");
 
+    let to = sessionStorage.getItem('paylode')
+
     const [err, seterror] = useState("");
     const [data, setdata] = useState([]);
 
@@ -77,12 +79,19 @@ const Statelist = () => {
                                 <th scope="col" className="py-3 px-6">
                                     State Name
                                 </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Edit
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Delete
-                                </th>
+                                {
+                                    to.role === '1' ?
+                                        <> <th scope="col" className="py-3 px-6">
+                                            Edit
+                                        </th>
+                                            <th scope="col" className="py-3 px-6">
+                                                Delete
+                                            </th>
+                                        </>
+
+
+                                        : <></>
+                                }
                             </tr>
                         </thead>
                         <tbody>
@@ -97,19 +106,24 @@ const Statelist = () => {
                                         </th>
                                         <td className="py-4 px-6">{e.name}</td>
 
-                                        <td className="py-4  px-2  ">
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">
-                                                Edit
-                                            </button>
-                                        </td>
-                                        <td className="py-4   ">
-                                            <button
-                                                class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700"
-                                                onClick={() => { postData(e.id) }}
-                                            >
-                                                Delete
-                                            </button>
-                                        </td>
+                                        {
+                                            to.role === "1" ? <>
+
+
+                                                <td className="py-4  px-2  ">
+
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
+
+                                                </td>
+                                                <td className="py-4   ">
+
+
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
+
+                                                </td>
+                                            </> : <></>
+
+                                        }
                                     </tr>
                                 );
                             })}

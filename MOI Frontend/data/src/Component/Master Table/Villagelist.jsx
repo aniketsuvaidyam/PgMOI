@@ -3,10 +3,15 @@ import axios from 'axios'
 import Sidebar from '../Home/Sidebar';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from '../Home/Navbar';
 
 
 
 const Villagelist = () => {
+
+    let to = sessionStorage.getItem('paylode')
+
+
     const [states, setstates] = useState([]);
     const [stateId, setstateId] = useState([]);
     const [districts, setdistrict] = useState([]);
@@ -118,7 +123,7 @@ const Villagelist = () => {
     return (
         <div>
             <Sidebar>
-
+                <Navbar />
                 <h1 className=' flex  text-lg font-bold py-2 items-center, justify-center'>VILLAGE DETAILS</h1>
                 <div className='flex mt-2 '>
                     <div className="col-span-6 sm:col-span-3 px-6  ">
@@ -184,12 +189,19 @@ const Villagelist = () => {
                                 <th scope="col" className="py-3 px-6">
                                     Village  Name
                                 </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Edit
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Delete
-                                </th>
+                                {
+                                    to.role === '1' ?
+                                        <> <th scope="col" className="py-3 px-6">
+                                            Edit
+                                        </th>
+                                            <th scope="col" className="py-3 px-6">
+                                                Delete
+                                            </th>
+                                        </>
+
+
+                                        : <></>
+                                }
 
 
                             </tr>
@@ -207,18 +219,24 @@ const Villagelist = () => {
 
 
 
-                                        <td className="py-4  px-2  ">
+                                        {
+                                            to.role === "1" ? <>
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
 
-                                        </td>
-                                        <td className="py-4   ">
+                                                <td className="py-4  px-2  ">
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => {
-                                                postData(e.id)
-                                            }}>Delete</button>
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
 
-                                        </td>
+                                                </td>
+                                                <td className="py-4   ">
+
+
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
+
+                                                </td>
+                                            </> : <></>
+
+                                        }
                                     </tr>
                                 )
                             })}

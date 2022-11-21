@@ -14,6 +14,7 @@ const Blocklist = () => {
     const [data, setdata] = useState([])
     const [err, seterror] = useState("");
 
+    let to = sessionStorage.getItem('paylode')
     const getState = () => {
         axios.get(`http://localhost:3000/api/state/all`, {
             headers: {
@@ -144,13 +145,19 @@ const Blocklist = () => {
                                 <th scope="col" className="py-3 px-6 ">
                                     Block  Name
                                 </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Edit
-                                </th>
-                                <th scope="col" className="py-3 px-6">
-                                    Delete
-                                </th>
+                                {
+                                    to.role === '1' ?
+                                        <> <th scope="col" className="py-3 px-6">
+                                            Edit
+                                        </th>
+                                            <th scope="col" className="py-3 px-6">
+                                                Delete
+                                            </th>
+                                        </>
 
+
+                                        : <></>
+                                }
 
                             </tr>
                         </thead>
@@ -167,18 +174,24 @@ const Blocklist = () => {
 
 
 
-                                        <td className="py-4  px-2  ">
+                                        {
+                                            to.role === "1" ? <>
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
 
-                                        </td>
-                                        <td className="py-4   ">
+                                                <td className="py-4  px-2  ">
 
-                                            <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => {
-                                                postData(e.id)
-                                            }}>Delete</button>
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-yellow-400 rounded-lg focus:shadow-outline hover:bg-yellow-600">Edit</button>
 
-                                        </td>
+                                                </td>
+                                                <td className="py-4   ">
+
+
+                                                    <button class="h-8 px-4  text-sm text-white transition-colors duration-150 bg-red-600 rounded-lg focus:shadow-outline hover:bg-red-700" onClick={() => { postData(e.id) }}>Delete</button>
+
+                                                </td>
+                                            </> : <></>
+
+                                        }
                                     </tr>
                                 )
                             })}
