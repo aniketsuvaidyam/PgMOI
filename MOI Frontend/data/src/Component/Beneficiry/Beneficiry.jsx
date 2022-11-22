@@ -156,7 +156,7 @@ const Beneficiry = () => {
                 <Navbar />
 
 
-                <div className="mt-10 sm:mt-0   p-2  flex justify-center items-center">
+                <div className="mt-10 sm:mt-0   p-2 bg-gray-50 flex justify-center items-center">
                     <div className="items-center max-h-screen overflow-scroll scrollbar-hide ">
                         <div className="mt-5 md:mt-0 md:col-span-2 ">
 
@@ -285,8 +285,8 @@ const Beneficiry = () => {
 
                                     </div>
                                 </div>
-                                <div className="px-6 py-3 bg-gray-50 text-right sm:px-6 ">
-                                    <button type="button" className="inline-flex justify-center py-1.5 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                <div className="px-6 py-3 bg-gray-100 text-right sm:px-6 ">
+                                    <button type="button" className=" justify-center py-1.5 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                         onClick={createBeneficiry}
                                     >
                                         Create Beneficiry

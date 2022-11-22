@@ -107,7 +107,7 @@ const Statelist = () => {
                                         <td className="py-4 px-6">{e.name}</td>
 
                                         {
-                                            to.role === "1" ? <>
+                                            to.role == "1" ? <>
 
 
                                                 <td className="py-4  px-2  ">
