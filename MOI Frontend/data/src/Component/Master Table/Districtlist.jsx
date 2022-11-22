@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Districtlist = () => {
     let token = sessionStorage.getItem('token')
-    let to = sessionStorage.getItem('paylode')
+    const to = JSON.parse(sessionStorage.getItem('paylode'));
     const [states, setstates] = useState([]);
     const [stateId, setstateId] = useState([]);
     const [data, setdata] = useState([]);

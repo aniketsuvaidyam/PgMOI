@@ -13,8 +13,7 @@ const Blocklist = () => {
     const [districtId, setdistrictId] = useState([]);
     const [data, setdata] = useState([])
     const [err, seterror] = useState("");
-
-    let to = sessionStorage.getItem('paylode')
+    const to = JSON.parse(sessionStorage.getItem('paylode'));
     const getState = () => {
         axios.get(`http://localhost:3000/api/state/all`, {
             headers: {

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { ToastContainer, toast, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Sidebar from '../Home/Sidebar';
+import Navbar from '../Home/Navbar';
 
 
 const Village = () => {
@@ -87,6 +88,7 @@ const Village = () => {
     return (
         <div>
             <Sidebar>
+                <Navbar />
 
                 <div className="w-full flex items-center justify-center  mt-16  ">
                     <div className=" w-96 shadow-lg rounded px-8 pt-6 pb-8 mb-4">

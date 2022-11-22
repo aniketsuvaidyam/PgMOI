@@ -9,7 +9,7 @@ import Navbar from '../Home/Navbar';
 
 const Villagelist = () => {
 
-    let to = sessionStorage.getItem('paylode')
+    const to = JSON.parse(sessionStorage.getItem('paylode'));
 
 
     const [states, setstates] = useState([]);
