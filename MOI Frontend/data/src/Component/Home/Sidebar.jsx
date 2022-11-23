@@ -27,6 +27,7 @@ const Sidebar = ({ children }) => {
         show: {
             width: '150px',
             padding: '4px,15px',
+
             opacity: 1,
             transition: {
                 duration: 0.2
@@ -53,32 +54,32 @@ const Sidebar = ({ children }) => {
     }
 
     return (
-        <div className='flex min-h-screen '>
+        <div className='flex min-h-screen  sticky top-0'>
             <motion.div animate={{
                 width: isopen ? "220px" : "45px", transition: {
                     duration: 0.5,
                     type: "spring",
                     damping: 11
                 }
-            }} className="bg-[rgb(0,7,61)] ">
-                <div className='flex items-center justify-between px-4 text-white py-2'>
+            }} className="bg-[#F3F4F6] ">
+                <div className='flex items-center justify-between px-4 text-black py-5'>
 
                     {isopen && <motion.h1
                         variants={showAnamation}
                         initial="hidden"
                         animate="show"
                         exit="hidden"
-                        className='text-lg'> MapOfIndia</motion.h1>}                    <div ><FaBars className='text-xl' onClick={Togel} /></div>
+                        className='text-lg font-bold text-black'> MapOfIndia</motion.h1>}                    <div ><FaBars className='text-xl text-green-600' onClick={Togel} /></div>
                 </div>
-                <div className='flex items-center px-4 justify-between py-2'>
-                    <div className='text-white'><BiSearch className='text-xl' /></div>
+                <div className='flex items-center px-4 justify-between pb-2'>
+                    <div className='text-green-600'><BiSearch className='text-xl' /></div>
                     <AnimatePresence>
                         <div>   {isopen && <motion.input
                             variants={inputAnimation}
                             initial="hidden"
                             animate="show"
                             // exit="hidden"
-                            className='border-none ml-4   rounded ' placeholder='Search...' />}
+                            className='border-none ml-4    rounded ' placeholder='Search...' />}
                         </div>
                     </AnimatePresence>
                 </div>
@@ -86,8 +87,8 @@ const Sidebar = ({ children }) => {
                 <section>
 
 
-                    <NavLink to="/home" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                        <motion.div className='whitespace-pre-wrap'><FaHome className='text-xl' /></motion.div>
+                    <NavLink to="/home" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB] hover:animate-pulse '>
+                        <motion.div className='whitespace-pre-wrap'><FaHome className='text-xl text-green-600 ' /></motion.div>
                         <AnimatePresence>
                             {isopen &&
                                 <motion.div
@@ -103,8 +104,8 @@ const Sidebar = ({ children }) => {
                     </NavLink>
 
                     {to.role == "1" ? <>
-                        <NavLink to="/register" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><AiOutlineUserAdd className='text-xl' /></motion.div>
+                        <NavLink to="/register" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><AiOutlineUserAdd className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -119,8 +120,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/beneficiry" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><AiOutlineUsergroupAdd className='text-xl' /></motion.div>
+                        <NavLink to="/beneficiry" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><AiOutlineUsergroupAdd className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -135,8 +136,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/state" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl' /></motion.div>
+                        <NavLink to="/state" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -151,8 +152,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/district" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl' /></motion.div>
+                        <NavLink to="/district" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -167,8 +168,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/block" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl' /></motion.div>
+                        <NavLink to="/block" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -183,8 +184,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/village" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl' /></motion.div>
+                        <NavLink to="/village" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><VscGitPullRequestCreate className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -199,8 +200,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/beneficirydata" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                        <NavLink to="/beneficirydata" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -215,8 +216,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/state/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                        <NavLink to="/state/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -231,8 +232,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/district/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                        <NavLink to="/district/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -247,8 +248,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/block/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                        <NavLink to="/block/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -263,8 +264,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink>
 
-                        <NavLink to="/village/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                        <NavLink to="/village/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                            <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                             <AnimatePresence>
                                 {isopen &&
                                     <motion.div
@@ -279,8 +280,8 @@ const Sidebar = ({ children }) => {
 
                         </NavLink></> :
                         <>
-                            <NavLink to="/beneficiry" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                                <motion.div className='whitespace-pre-wrap'><AiOutlineUsergroupAdd className='text-xl' /></motion.div>
+                            <NavLink to="/beneficiry" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                                <motion.div className='whitespace-pre-wrap'><AiOutlineUsergroupAdd className='text-xl text-green-600' /></motion.div>
                                 <AnimatePresence>
                                     {isopen &&
                                         <motion.div
@@ -295,8 +296,8 @@ const Sidebar = ({ children }) => {
 
                             </NavLink>
 
-                            <NavLink to="/beneficirydata" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                            <NavLink to="/beneficirydata" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                                 <AnimatePresence>
                                     {isopen &&
                                         <motion.div
@@ -311,8 +312,8 @@ const Sidebar = ({ children }) => {
 
                             </NavLink>
 
-                            <NavLink to="/state/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                            <NavLink to="/state/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                                 <AnimatePresence>
                                     {isopen &&
                                         <motion.div
@@ -327,8 +328,8 @@ const Sidebar = ({ children }) => {
 
                             </NavLink>
 
-                            <NavLink to="/district/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                            <NavLink to="/district/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                                 <AnimatePresence>
                                     {isopen &&
                                         <motion.div
@@ -343,8 +344,8 @@ const Sidebar = ({ children }) => {
 
                             </NavLink>
 
-                            <NavLink to="/block/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                            <NavLink to="/block/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                                 <AnimatePresence>
                                     {isopen &&
                                         <motion.div
@@ -359,8 +360,8 @@ const Sidebar = ({ children }) => {
 
                             </NavLink>
 
-                            <NavLink to="/village/list" className='flex items-center px-4 text-white py-2 hover:border-r-2 whitespace-nowrap hover:border-r-white hover:bg-[rgb(45,51,89)] hover:animate-pulse '>
-                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl' /></motion.div>
+                            <NavLink to="/village/list" className='flex items-center px-4 text-black py-2 hover:border-l-4 whitespace-nowrap hover:border-l-green-600 hover:bg-[#E5E7EB]  hover:animate-pulse '>
+                                <motion.div className='whitespace-pre-wrap'><BsListCheck className='text-xl text-green-600' /></motion.div>
                                 <AnimatePresence>
                                     {isopen &&
                                         <motion.div
